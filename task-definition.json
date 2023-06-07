@@ -40,12 +40,6 @@
         "securityGroups": ["sg-0022b9fd3cbd4b213"],
         "assignPublicIp": "ENABLED"
       }
-    },
-    "tags": [
-      {
-        "key": "Environment",
-        "value": "Production"
-      }
-    ]
-  }
+    }
+}
   
