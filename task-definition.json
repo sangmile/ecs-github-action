@@ -30,10 +30,6 @@
     "requiresCompatibilities": ["FARGATE"],
     "cpu": "256",
     "memory": "512",
-    "deploymentConfiguration": {
-      "maximumPercent": 200,
-      "minimumHealthyPercent": 50
-    },
     "networkConfiguration": {
       "awsvpcConfiguration": {
         "subnets": ["subnet-028305f67dad49932", "subnet-059d6284ae57e40ac"],
