@@ -1,35 +1,51 @@
 {
     "family": "sample-app",
+    "taskRoleArn": "arn:aws:iam::306827093125:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::306827093125:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "containerDefinitions": [
-      {
-        "name": "sample-app",
-        "image": "306827093125.dkr.ecr.ap-northeast-2.amazonaws.com/sample-app:latest",
-        "cpu": 256,
-        "memory": 512,
-        "essential": true,
-        "portMappings": [
-          {
-            "containerPort": 8080,
-            "hostPort": 8080,
-            "protocol": "tcp"
-          }
-        ],
-        "logConfiguration": {
-          "logDriver": "awslogs",
-          "options": {
-            "awslogs-group" : "/ecs/sample-app",
-            "awslogs-region" : "ap-northeast-2",
-            "awslogs-stream-prefix" : "ecs"
+        {
+          "name": "sample-app",
+          "image": "306827093125.dkr.ecr.ap-northeast-2.amazonaws.com/sample-app:latest",
+          "cpu": 256,
+          "memory": 512,
+          "essential": true,
+          "portMappings": [
+            {
+              "containerPort": 8080,
+              "hostPort": 8080,
+              "protocol": "tcp"
+            }
+          ],
+          "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+              "awslogs-group" : "/ecs/sample-app",
+              "awslogs-region" : "ap-northeast-2",
+              "awslogs-stream-prefix" : "ecs"
+            }
           }
         }
-      }
     ],
-    "requiresCompatibilities": [
-      "FARGATE"
-    ],
+    "requiresCompatibilities": ["FARGATE"],
     "cpu": "256",
-    "memory": "512"
+    "memory": "512",
+    "deploymentConfiguration": {
+      "maximumPercent": 200,
+      "minimumHealthyPercent": 50
+    },
+    "networkConfiguration": {
+      "awsvpcConfiguration": {
+        "subnets": ["subnet-028305f67dad49932", "subnet-059d6284ae57e40ac"],
+        "securityGroups": ["sg-0022b9fd3cbd4b213"],
+        "assignPublicIp": "ENABLED"
+      }
+    },
+    "tags": [
+      {
+        "key": "Environment",
+        "value": "Production"
+      }
+    ]
   }
   
