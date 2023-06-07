@@ -1,6 +1,5 @@
 {
     "family": "sample-app",
-    "taskRoleArn": "arn:aws:iam::306827093125:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::306827093125:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "containerDefinitions": [
