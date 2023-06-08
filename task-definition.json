@@ -29,12 +29,5 @@
     ],
     "requiresCompatibilities": ["FARGATE"],
     "cpu": "256",
-    "memory": "512",
-    "networkConfiguration": {
-      "awsvpcConfiguration": {
-        "subnets": ["subnet-028305f67dad49932", "subnet-059d6284ae57e40ac"],
-        "securityGroups": ["sg-0022b9fd3cbd4b213"],
-        "assignPublicIp": "ENABLED"
-      }
-    }
+    "memory": "512"
 }
