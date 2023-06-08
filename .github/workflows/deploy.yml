@@ -38,7 +38,7 @@ jobs:
         push: true
         tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:latest
         context: .
-        file: ./Dockerfile
+        file: ./Dockerfile        
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
@@ -46,7 +46,7 @@ jobs:
       with:
         task-definition: ${{ env.ECS_TASK_DEFINITION }}
         container-name: sample-app
-        image: ${{ steps.build-image.outputs.digest }}
+        image: 306827093125.dkr.ecr.ap-northeast-2.amazonaws.com/sample-app:${{ github.sha }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
